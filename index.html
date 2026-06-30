@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate Communications, Inc. | Building Tomorrow's Solutions Today</title>
+<meta name="description" content="Corporate Communications, Inc. is a vertically-synergized thought leader in the solutions space.">
+<style>
+  :root{
+    --navy:#0B1F3A;
+    --navy-deep:#071527;
+    --steel:#3D5A80;
+    --silver:#A9B4C2;
+    --paper:#F4F2EC;
+    --accent:#C9A24B;
+    --accent-dim:#8A7335;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: Georgia, 'Times New Roman', serif;
+    background:var(--paper);
+    color:var(--navy-deep);
+    line-height:1.6;
+  }
+  .util-sans{font-family: Arial, Helvetica, sans-serif;}
+
+  header{
+    background:linear-gradient(180deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:var(--paper);
+    padding:18px 5vw;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:50;
+    border-bottom:3px solid var(--accent);
+  }
+  .logo{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:800;
+    letter-spacing:0.5px;
+    font-size:1.15rem;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .logo .mark{
+    display:inline-block;
+    width:14px;height:14px;
+    background:var(--accent);
+    transform:rotate(45deg);
+  }
+  .logo small{
+    font-family: Georgia, serif;
+    font-weight:400;
+    font-style:italic;
+    color:var(--silver);
+    font-size:0.7rem;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:28px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.82rem;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+  }
+  nav a{color:var(--silver);text-decoration:none;transition:color .2s;}
+  nav a:hover{color:var(--accent);}
+
+  .hero{
+    background:
+      radial-gradient(ellipse at 70% 20%, rgba(201,162,75,0.10), transparent 60%),
+      linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 55%, var(--steel) 140%);
+    color:var(--paper);
+    padding:120px 5vw 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-10%;
+    top:-20%;
+    width:600px;
+    height:600px;
+    border:1px solid rgba(201,162,75,0.18);
+    border-radius:50%;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:4%;
+    top:10%;
+    width:380px;
+    height:380px;
+    border:1px solid rgba(201,162,75,0.12);
+    border-radius:50%;
+  }
+  .eyebrow{
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:0.75rem;
+    color:var(--accent);
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 5vw, 4rem);
+    font-weight:400;
+    max-width:14ch;
+    line-height:1.1;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--accent);
+  }
+  .hero p{
+    margin-top:26px;
+    max-width:46ch;
+    font-size:1.08rem;
+    color:var(--silver);
+  }
+  .cta-row{
+    margin-top:42px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.85rem;
+    letter-spacing:0.8px;
+    text-transform:uppercase;
+    padding:14px 28px;
+    border:1px solid var(--accent);
+    background:transparent;
+    color:var(--paper);
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    transition:all .25s;
+  }
+  .btn.solid{background:var(--accent);color:var(--navy-deep);font-weight:700;}
+  .btn:hover{background:var(--accent);color:var(--navy-deep);}
+  .btn.solid:hover{background:transparent;color:var(--accent);}
+
+  section{padding:90px 5vw;}
+  .section-head{
+    text-align:center;
+    max-width:680px;
+    margin:0 auto 56px;
+  }
+  .section-head .eyebrow{color:var(--accent-dim);}
+  .section-head h2{
+    font-size:clamp(1.6rem,3vw,2.4rem);
+    font-weight:400;
+    color:var(--navy);
+  }
+
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:2px;
+    background:var(--navy-deep);
+    border:1px solid var(--navy-deep);
+  }
+  .pillar{
+    background:var(--paper);
+    padding:42px 32px;
+  }
+  .pillar .num{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.75rem;
+    color:var(--accent-dim);
+    letter-spacing:2px;
+    margin-bottom:18px;
+  }
+  .pillar h3{
+    font-weight:400;
+    font-size:1.25rem;
+    margin-bottom:14px;
+    color:var(--navy);
+  }
+  .pillar p{
+    font-size:0.95rem;
+    color:#4a5568;
+  }
+
+  .quote-band{
+    background:var(--navy);
+    color:var(--paper);
+    text-align:center;
+    padding:80px 5vw;
+  }
+  .quote-band blockquote{
+    font-size:clamp(1.3rem,2.6vw,1.9rem);
+    font-style:italic;
+    max-width:30ch;
+    margin:0 auto 18px;
+    line-height:1.4;
+  }
+  .quote-band cite{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style:normal;
+    font-size:0.8rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+
+  .generator{
+    background:#fff;
+    border:1px solid #ddd6c4;
+    max-width:760px;
+    margin:0 auto;
+    padding:48px 40px;
+    text-align:center;
+  }
+  .generator h2{
+    font-weight:400;
+    font-size:1.5rem;
+    color:var(--navy);
+    margin-bottom:10px;
+  }
+  .generator p.sub{
+    color:#6b7280;
+    font-size:0.92rem;
+    margin-bottom:28px;
+  }
+  #output{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.15rem;
+    color:var(--navy-deep);
+    background:var(--paper);
+    border-left:3px solid var(--accent);
+    padding:22px 26px;
+    margin-bottom:26px;
+    min-height:1.4em;
+    text-align:left;
+  }
+
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:36px;
+    text-align:center;
+    max-width:900px;
+    margin:0 auto;
+  }
+  .stat .figure{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:2.6rem;
+    font-weight:800;
+    color:var(--navy);
+  }
+  .stat .label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.78rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#6b7280;
+    margin-top:6px;
+  }
+  .stat .fine{
+    font-size:0.72rem;
+    color:#b3aa94;
+    margin-top:4px;
+    font-style:italic;
+  }
+
+  .team{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:32px;
+    max-width:1000px;
+    margin:0 auto;
+  }
+  .person{
+    text-align:center;
+  }
+  .avatar{
+    width:96px;height:96px;
+    border-radius:50%;
+    margin:0 auto 16px;
+    background:linear-gradient(135deg,var(--steel),var(--navy));
+    display:flex;align-items:center;justify-content:center;
+    font-family: Arial, Helvetica, sans-serif;
+    color:var(--paper);
+    font-weight:700;
+    font-size:1.2rem;
+  }
+  .person h4{font-weight:400;color:var(--navy);font-size:1.05rem;}
+  .person .role{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.75rem;
+    color:var(--accent-dim);
+    text-transform:uppercase;
+    letter-spacing:0.8px;
+    margin-top:4px;
+  }
+
+  footer{
+    background:var(--navy-deep);
+    color:var(--silver);
+    padding:50px 5vw 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:0.82rem;
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:30px;
+    max-width:1100px;
+    margin:0 auto 30px;
+  }
+  footer h5{
+    color:var(--paper);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-size:0.75rem;
+    margin-bottom:14px;
+  }
+  footer ul{list-style:none;}
+  footer li{margin-bottom:8px;}
+  footer a{color:var(--silver);text-decoration:none;}
+  footer a:hover{color:var(--accent);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding-top:22px;
+    text-align:center;
+    max-width:1100px;
+    margin:0 auto;
+    color:#5d6c82;
+    font-size:0.72rem;
+  }
+
+  @media (max-width:680px){
+    nav ul{display:none;}
+    header{padding:16px 6vw;}
+    .hero{padding:90px 6vw 70px;}
+    section{padding:60px 6vw;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><span class="mark"></span>CORPORATE COMMUNICATIONS, INC.<small>est. whenever</small></div>
+  <nav>
+    <ul>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#generator">Mission Generator</a></li>
+      <li><a href="#numbers">By The Numbers</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="eyebrow util-sans">A Global Leader In Leading Globally</div>
+  <h1>We build <em>tomorrow's</em> solutions, today.</h1>
+  <p>For over a generation, Corporate Communications, Inc. has stood at the intersection of vision and execution, delivering outcomes our clients didn't know they were missing until we arrived. This is not a slogan. It is the operating principle behind everything we touch.</p>
+  <div class="cta-row">
+    <a href="#generator" class="btn solid">Generate Our Mission Statement</a>
+    <a href="#solutions" class="btn">Explore Our Solutions Space</a>
+  </div>
+</section>
+
+<section id="solutions">
+  <div class="section-head">
+    <div class="eyebrow util-sans">Core Competencies</div>
+    <h2>Three Pillars of Forward Momentum</h2>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="num">01 / SYNERGY</div>
+      <h3>Holistic Ideation</h3>
+      <p>Our cross-functional teams convene at the earliest stage of any engagement, ensuring that every stakeholder shares a single, unified vision of success before a single resource is committed.</p>
+    </div>
+    <div class="pillar">
+      <div class="num">02 / SCALE</div>
+      <h3>Dynamic Solutioning</h3>
+      <p>We deploy a proprietary methodology, refined across hundreds of engagements, to translate emerging challenges into durable, scalable solutions our clients can build on for years.</p>
+    </div>
+    <div class="pillar">
+      <div class="num">03 / VISION</div>
+      <h3>Strategic Alignment</h3>
+      <p>Leadership convenes quarterly to recalibrate against our north star, ensuring the entire organization continues to move forward together, with clarity and shared purpose.</p>
+    </div>
+  </div>
+</section>
+
+<div class="quote-band">
+  <blockquote>"Conviction is our greatest asset. Everything else, we figure out along the way."</blockquote>
+  <cite>&mdash; Founder & Chief Vision Officer</cite>
+</div>
+
+<section id="generator">
+  <div class="section-head">
+    <div class="eyebrow util-sans">Proprietary Tooling</div>
+    <h2>The Mission Statement Generator</h2>
+  </div>
+  <div class="generator">
+    <h2>Hear It In Our Own Words</h2>
+    <p class="sub">Our mission evolves in real time, shaped by the markets we serve and the partners we trust. Generate a fresh expression of who we are, today.</p>
+    <div id="output">We build tomorrow's solutions, today.</div>
+    <button class="btn solid" id="genBtn" onclick="generateMission()">Generate Our Mission</button>
+  </div>
+</section>
+
+<section id="numbers" style="background:var(--navy-deep);color:var(--paper);">
+  <div class="section-head">
+    <div class="eyebrow util-sans" style="color:var(--accent);">Proven Results</div>
+    <h2 style="color:var(--paper);">By The Numbers</h2>
+  </div>
+  <div class="stats">
+    <div class="stat">
+      <div class="figure">∞</div>
+      <div class="label">Solutions Delivered</div>
+      <div class="fine">and counting</div>
+    </div>
+    <div class="stat">
+      <div class="figure">112%</div>
+      <div class="label">Client Satisfaction</div>
+      <div class="fine">we set our own bar</div>
+    </div>
+    <div class="stat">
+      <div class="figure">40+</div>
+      <div class="label">Markets Served</div>
+      <div class="fine">and growing every quarter</div>
+    </div>
+    <div class="stat">
+      <div class="figure">1</div>
+      <div class="label">Shared Mission</div>
+      <div class="fine">that guides every decision</div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="section-head">
+    <div class="eyebrow util-sans">Governance</div>
+    <h2>Leadership Driving Our Vision Forward</h2>
+  </div>
+  <div class="team">
+    <div class="person">
+      <div class="avatar">CV</div>
+      <h4>Chief Vision Officer</h4>
+      <div class="role">Sets Our North Star</div>
+    </div>
+    <div class="person">
+      <div class="avatar">HS</div>
+      <h4>Head of Solutioning</h4>
+      <div class="role">Leads Our Delivery Teams</div>
+    </div>
+    <div class="person">
+      <div class="avatar">VS</div>
+      <h4>VP, Global Partnerships</h4>
+      <div class="role">Builds Lasting Relationships</div>
+    </div>
+    <div class="person">
+      <div class="avatar">DB</div>
+      <h4>Director, Brand Strategy</h4>
+      <div class="role">Champions Our Story</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h5>Corporate Communications, Inc.</h5>
+      <p style="max-width:28ch;color:#8d99ad;">Building tomorrow's solutions, today, for partners around the world.</p>
+    </div>
+    <div>
+      <h5>Solutions</h5>
+      <ul>
+        <li><a href="#solutions">Holistic Ideation</a></li>
+        <li><a href="#solutions">Dynamic Solutioning</a></li>
+        <li><a href="#solutions">Strategic Alignment</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#numbers">By The Numbers</a></li>
+        <li><a href="#generator">Mission Generator</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; <span id="year"></span> Corporate Communications, Inc. All rights reserved worldwide.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const subjects = ["We","Our team","Leadership","The organization","Our people","This company"];
+  const verbs = ["leverage","operationalize","synergize","ideate around","action","unlock"];
+  const adjectives = ["holistic","dynamic","forward-thinking","cross-functional","best-in-class","mission-critical"];
+  const nouns = ["bandwidth","paradigms","ecosystems","value streams","touchpoints","deliverables"];
+  const outcomes = [
+    "to build tomorrow's solutions, today.",
+    "so every stakeholder moves forward as one.",
+    "in service of a north star we believe in completely.",
+    "to deliver lasting value at global scale.",
+    "because our clients deserve nothing less.",
+    "with the conviction this organization was founded on."
+  ];
+
+  function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+  function generateMission(){
+    const sentence = `${pick(subjects)} ${pick(verbs)} ${pick(adjectives)} ${pick(nouns)} ${pick(outcomes)}`;
+    const out = document.getElementById('output');
+    out.style.opacity = 0;
+    setTimeout(()=>{
+      out.textContent = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+      out.style.opacity = 1;
+    }, 150);
+  }
+  document.getElementById('output').style.transition = 'opacity .15s';
+</script>
+
+</body>
+</html>
